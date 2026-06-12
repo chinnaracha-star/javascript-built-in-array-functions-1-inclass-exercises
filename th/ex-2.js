@@ -8,7 +8,22 @@
     - เมื่อ Algorithm นี้ทำงาน จะต้องเห็นผลลัพธ์ด้านล่าง
 */
 
+// ต้องเข้าถึง department ก่อน .filter
+// แล้วเพิ่มเงิน bonus ให้  .map
+// รวม เงินทั้งหมด ที่ต้องจ่าย  .reduce
+
 // Start coding here
+let addBonusForSelectedDepartment = (employeeInfo, bonus, department) => {
+  let depar = employeeInfo.filter(
+    (employeeInfo) => employeeInfo.department === department,
+  );
+  console.log(depar);
+  let addBonus = depar.map((depar) => depar.salary + bonus);
+  console.log(addBonus);
+  let sumSalary = addBonus.reduce((acc, cur) => acc + cur);
+  console.log(sumSalary);
+  return sumSalary;
+};
 
 const employeeInfo = [
   {
@@ -62,4 +77,4 @@ const employeeInfo = [
 ];
 
 console.log(addBonusForSelectedDepartment(employeeInfo, 5000, "HR")); // 69000
-console.log(addBonusForSelectedDepartment(employeeInfo, 1000, "Operations")); // 67000
+// console.log(addBonusForSelectedDepartment(employeeInfo, 1000, "Operations")); // 67000
